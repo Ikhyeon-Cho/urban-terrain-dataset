@@ -1,0 +1,30 @@
+<launch>
+
+  <arg name="file" default="" />
+  <arg name="use_outdoor_config" default="true" />
+  <arg name="speed" default="1" />
+  <arg name="play_from" default="0.0" />
+
+  <!-- Sensor Transform configuration -->
+  <include file="$(dirname)/robot/config_outdoor.launch" if="$(arg use_outdoor_config)" />
+  <include file="$(dirname)/robot/config_indoor.launch" unless="$(arg use_outdoor_config)" />
+
+  <!-- Play ROSBAG -->
+  <param name="/use_sim_time" value="true" />
+  <node pkg="rosbag" type="play" name="rosbag" output="screen"
+    args="--clock -r $(arg speed) -s $(arg play_from) $(find ku_dataset_ros)/rosbag/$(arg file).bag" />
+
+  <!-- From packet msg to PointCloud2 -->
+  <group ns="velodyne_front">
+    <include file="$(dirname)/VLP16_packet_to_pointcloud.launch" />
+  </group>
+
+  <!-- From packet msg to PointCloud2 -->
+  <group ns="velodyne_tilted">
+    <include file="$(dirname)/VLP16_packet_to_pointcloud.launch" />
+  </group>
+
+  <!-- rviz -->
+  <node pkg="rviz" type="rviz" name="rviz_$(arg file)" output="screen"
+    args="-d $(find ku_dataset_ros)/rosbag/rviz/$(arg file).rviz" />
+</launch>

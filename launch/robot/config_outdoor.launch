@@ -1,0 +1,21 @@
+<launch>
+  <arg name="baselink" default="base_link" />
+  <arg name="lidar_front" default="velodyne_front" />
+  <arg name="lidar_tilted" default="velodyne_tilted" />
+  <arg name="imulink" default="imu" />
+
+
+  <!-- LiDAR: velodyne VLP 16 front -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_lidarFront"
+    args="-0.040 0.000 0.692 -0.05235 -0.0000  0.0200 $(arg baselink) $(arg lidar_front)" />
+
+  <!-- LiDAR: velodyne VLP 16 tilted  -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_lidarTilted"
+  args="-0.050 0.000 0.592 0.0000 0.3678 0.02235 $(arg baselink) $(arg lidar_tilted)" />
+    
+
+  <!-- IMU: Xsens -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_imu"
+    args="-0.050 0.000 0.350 0.000 0.000 0.000 $(arg baselink) $(arg imulink)" />
+
+</launch>
