@@ -1,11 +1,13 @@
 <launch>
+  
   <node pkg="nodelet" type="nodelet" name="pointcloud_nodelet_manager"
     args="standalone velodyne_pointcloud/TransformNodelet" output="screen">
     <param name="model" value="VLP16" />
     <param name="calibration" value="$(find velodyne_pointcloud)/params/VLP16db.yaml" />
     <param name="organize_cloud" value="false" />
-    <param name="max_range" value="10.0" />
+    <param name="max_range" value="130.0" />
     <param name="min_range" value="0.4" />
+    <param name="target_frame" value="base_link" />
   </node>
 
 </launch>

@@ -1,0 +1,24 @@
+<launch>
+
+  <arg name="file" default="urban_campus_small" />
+  <arg name="speed" default="1" />
+  <arg name="play_from" default="0.0" />
+  <param name="/use_sim_time" value="true" />
+
+
+  <!-- Setup Extrinsic Parameter: tilted velodyne -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_tilted_lidar"
+    args="-0.050 0.000 0.592 0.0000 0.2480 -0.02235 base_link velodyne_tilted" />
+
+
+  <!-- From packet msg to PointCloud2 -->
+  <group ns="velodyne_tilted">
+    <include file="$(dirname)/VLP16_packet_to_pointcloud.launch" />
+  </group>
+
+
+  <!-- Play ROSBAG -->
+  <node pkg="rosbag" type="play" name="rosbag" output="screen"
+    args="--clock -r $(arg speed) -s $(arg play_from) $(dirname)/dataset/$(arg file).bag" />
+
+</launch>
