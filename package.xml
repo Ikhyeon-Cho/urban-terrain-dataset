@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ku_dataset_ros</name>
+  <name>campus_dataset_player</name>
   <version>0.0.0</version>
   <description>KU TTA(Terrain Traversability Analysis) Dataset package</description>
   <maintainer email="tre0430@korea.ac.kr">Ikhyeon Cho</maintainer>
