@@ -1,0 +1,20 @@
+<launch>
+
+  <arg name="ns" default="/" />
+  <arg name="frame_id" default="" />
+  <arg name="min_range" default="0.4" />
+  <arg name="max_range" default="130.0" />
+
+  <group ns="$(arg ns)">
+    <node pkg="nodelet" type="nodelet" name="vlp16packet_to_pointcloud"
+      args="standalone velodyne_pointcloud/TransformNodelet > /dev/null">
+      <param name="model" value="VLP16" />
+      <param name="calibration" value="$(find velodyne_pointcloud)/params/VLP16db.yaml" />
+      <param name="organize_cloud" value="false" />
+      <param name="max_range" value="$(arg max_range)" />
+      <param name="min_range" value="$(arg min_range)" />
+      <param name="target_frame" value="$(arg frame_id)" />
+    </node>
+  </group>
+
+</launch>
