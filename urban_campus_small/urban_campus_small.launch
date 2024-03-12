@@ -28,7 +28,7 @@
 
   <!-- Play ROSBAG -->
   <node pkg="rosbag" type="play" name="rosbag" output="screen"
-    args="--clock -r $(arg speed) -s $(arg play_from) $(find campus_dataset_player)/rosbag/$(arg bagfile).bag" />
+    args="--clock -r $(arg speed) -s $(arg play_from) $(find campus_dataset_player)/data/$(arg bagfile).bag" />
 
 
   <!-- Extrinsic Parameter: tilted velodyne -->
