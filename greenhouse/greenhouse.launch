@@ -1,0 +1,49 @@
+<launch>
+
+  <!-- Rosbag Player Configuration -->
+  <arg name="bagfile" default="greenhouse" />
+
+  <param name="/use_sim_time" value="true" />
+  <arg name="speed" default="1" />
+  <arg name="play_from" default="0.0" />
+  <arg name="baselink" default="base_link" />
+
+
+
+  <!-- Setup Extrinsic Parameter: front velodyne VLP-16  -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_lidarFront"
+  args="-0.09 0.000 1.06 -0.05235 0.005 -0.003 $(arg baselink) velodyne_front" />
+
+  <!-- Setup Extrinsic Parameter: tilted velodyne VLP-16  -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_lidarTilted"
+    args="0.05 0.00 0.86 0.00 0.4493 -0.01745 $(arg baselink) velodyne_tilted" />
+
+  <!-- Setup Extrinsic Parameter: ouster os1-64  -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_lidarOuster"
+    args="0.05 0.00 1.124 0.00 0.00 0.00 $(arg baselink) os_sensor" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_imu"
+    args="-0.05 0.00 0.35 0.00 0.00 0.00 $(arg baselink) imu" />
+    
+
+  <!-- From packet msg to PointCloud2 in specified baselink frame -->
+  <include file="$(find campus_dataset_player)/vlp16packet_to_pointcloud.launch" >
+    <arg name="ns" value="velodyne_tilted" />
+    <arg name="frame_id" value="$(arg baselink)" />
+  </include>
+
+  <include file="$(find campus_dataset_player)/vlp16packet_to_pointcloud.launch" >
+    <arg name="ns" value="velodyne_front" />
+    <arg name="frame_id" value="$(arg baselink)" />
+  </include>
+
+  <!-- RViz -->
+  <node pkg="rviz" type="rviz" name="rviz"
+    args="-d $(find campus_dataset_player)/greenhouse/$(arg bagfile).rviz > /dev/null" />
+
+
+  <!-- Play ROSBAG -->
+  <node pkg="rosbag" type="play" name="rosbag" output="screen"
+    args="--clock -r $(arg speed) -s $(arg play_from) $(find campus_dataset_player)/data/$(arg bagfile).bag" />
+
+</launch>
