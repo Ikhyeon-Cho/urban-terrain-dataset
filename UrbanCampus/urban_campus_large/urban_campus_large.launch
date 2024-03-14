@@ -33,7 +33,7 @@
 
   <!-- RViz -->
   <node pkg="rviz" type="rviz" name="rviz"
-    args="-d $(find campus_dataset_player)/$(arg bagfile)/$(arg bagfile).rviz > /dev/null" />
+    args="-d $(find campus_dataset_player)/UrbanCampus/$(arg bagfile)/$(arg bagfile).rviz > /dev/null" />
 
 
   <!-- Play ROSBAG -->

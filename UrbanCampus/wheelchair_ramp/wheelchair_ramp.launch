@@ -26,7 +26,7 @@
 
   <!-- RViz -->
   <node pkg="rviz" type="rviz" name="rviz"
-    args="-d $(find campus_dataset_player)/wheelchair_ramp/$(arg bagfile).rviz > /dev/null" />
+    args="-d $(find campus_dataset_player)/UrbanCampus/wheelchair_ramp/$(arg bagfile).rviz > /dev/null" />
 
 
   <!-- Play ROSBAG -->

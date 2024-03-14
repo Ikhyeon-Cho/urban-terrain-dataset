@@ -5,7 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /LiDAR_tilted1
+        - /LiDAR_front1
       Splitter Ratio: 0.5
     Tree Height: 534
   - Class: rviz/Selection
@@ -25,7 +25,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: LiDAR_tilted
+    SyncSource: LiDAR_front
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -60,7 +60,7 @@ Visualization Manager:
       Max Intensity: 200
       Min Color: 25; 255; 0
       Min Intensity: 0
-      Name: LiDAR_tilted
+      Name: LiDAR_front
       Position Transformer: XYZ
       Queue Size: 10
       Selectable: true
