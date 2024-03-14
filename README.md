@@ -26,12 +26,12 @@ The dataset is provided with the use of [rosbag](https://wiki.ros.org/rosbag). F
 
 To find out more about the rosbag command-line tool, see [rosbag Command-line Usage](https://wiki.ros.org/rosbag/Commandline) and [Cookbook examples](https://wiki.ros.org/rosbag/Cookbook)
 ## Install
-Use the following commands to use the campus_dataset_player package for playing rosbag files
+Use the following commands to use the tta_dataset_player package for playing rosbag files
   ```
   cd ~/your-ros-workspace/src
   git clone https://github.com/Ikhyeon-Cho/KU-TTA-Dataset.git
   cd ..
-  catkin build campus_dataset_player
+  catkin build tta_dataset_player
   ```
 
 ## Datasets

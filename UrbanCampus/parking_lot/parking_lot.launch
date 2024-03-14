@@ -19,18 +19,18 @@
 
     
   <!-- From packet msg to PointCloud2 in specified baselink frame -->
-  <include file="$(find campus_dataset_player)/vlp16packet_to_pointcloud.launch" >
+  <include file="$(find tta_dataset_player)/vlp16packet_to_pointcloud.launch" >
     <arg name="ns" value="velodyne_tilted" />
     <arg name="frame_id" value="$(arg baselink)" />
   </include>
 
   <!-- RViz -->
   <node pkg="rviz" type="rviz" name="rviz"
-    args="-d $(find campus_dataset_player)/$(arg bagfile)/$(arg bagfile).rviz > /dev/null" />
+    args="-d $(find tta_dataset_player)/$(arg bagfile)/$(arg bagfile).rviz > /dev/null" />
 
 
   <!-- Play ROSBAG -->
   <node pkg="rosbag" type="play" name="rosbag" output="screen"
-    args="--clock -r $(arg speed) -s $(arg play_from) $(find campus_dataset_player)/data/$(arg bagfile).bag" />
+    args="--clock -r $(arg speed) -s $(arg play_from) $(find tta_dataset_player)/data/$(arg bagfile).bag" />
 
 </launch>
