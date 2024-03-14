@@ -12,7 +12,7 @@
 
   <!-- Setup Extrinsic Parameter: tilted velodyne VLP-16  -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_lidarTilted"
-    args="0.04 0.000 0.582 0.00 0.240 -0.015 $(arg baselink) velodyne_tilted" />
+    args="0.04 0.000 0.572 0.00 0.240 -0.016 $(arg baselink) velodyne_tilted" />
 
   <node pkg="tf2_ros" type="static_transform_publisher" name="lidarTilted_to_imu"
     args="0 0 0 0 0 0 velodyne_tilted imu_link" />
