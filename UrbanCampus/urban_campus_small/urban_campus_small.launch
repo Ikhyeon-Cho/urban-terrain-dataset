@@ -4,7 +4,7 @@
   <arg name="bagfile" default="urban_campus_small" />
 
   <param name="/use_sim_time" value="true" />
-  <arg name="speed" default="1" />
+  <arg name="playback_speed" default="1" />
   <arg name="play_from" default="0.0" />
   <arg name="baselink" default="base_link" />
 
@@ -28,7 +28,7 @@
 
   <!-- Play ROSBAG -->
   <node pkg="rosbag" type="play" name="rosbag" output="screen"
-    args="--clock -r $(arg speed) -s $(arg play_from) $(find tta_dataset_player)/data/$(arg bagfile).bag" />
+    args="--clock -r $(arg playback_speed) -s $(arg play_from) $(find tta_dataset_player)/data/$(arg bagfile).bag" />
 
 
   <!-- Extrinsic Parameter: tilted velodyne -->
