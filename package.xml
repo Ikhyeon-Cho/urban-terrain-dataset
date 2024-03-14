@@ -8,6 +8,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>roscpp</depend>
+  <depend>velodyne_pointcloud</depend>
 
   <export>
   </export>

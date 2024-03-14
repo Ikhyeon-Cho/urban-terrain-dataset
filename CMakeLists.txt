@@ -3,12 +3,14 @@ project(tta_dataset_player)
 
 find_package(catkin REQUIRED COMPONENTS
     roscpp
+    velodyne_pointcloud
 )
 
 catkin_package(
   INCLUDE_DIRS 
   CATKIN_DEPENDS 
     roscpp
+    velodyne_pointcloud
 )
 
 ###########
