@@ -9,13 +9,21 @@
   <arg name="baselink" default="base_link" />
 
 
+  <!-- Setup Extrinsic Parameter: front velodyne VLP-16  -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_lidarFront"
+    args="-0.040 0.000 0.682 0.00 0.00 0.025 $(arg baselink) velodyne_front" />
 
   <!-- Setup Extrinsic Parameter: tilted velodyne VLP-16  -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_lidarTilted"
-    args="-0.05 0.000 0.592 0.00 0.2480 -0.02235 $(arg baselink) velodyne_tilted" />
+    args="0.04 0.000 0.582 0.05 0.4055 0.02235 $(arg baselink) velodyne_tilted" />
 
 
   <!-- From packet msg to PointCloud2 in specified baselink frame -->
+  <include file="$(find tta_dataset_player)/vlp16packet_to_pointcloud.launch" >
+    <arg name="ns" value="velodyne_front" />
+    <arg name="frame_id" value="$(arg baselink)" />
+  </include>
+
   <include file="$(find tta_dataset_player)/vlp16packet_to_pointcloud.launch" >
     <arg name="ns" value="velodyne_tilted" />
     <arg name="frame_id" value="$(arg baselink)" />
