@@ -77,8 +77,8 @@ Use the following commands to download and build the `tta_dataset_player` packag
 1. Locate the downloaded rosbag files (See [Download the datasets](#download)) into `KU-TTA-Dataset/data` folder. 
 2. Run the command below to play the rosbag files in `data` folder:
   ```
-  ## Example: urban_campus.bag
-  roslaunch tta_dataset_player urban_campus.launch  playback_speed:=4.0
+  ## Example: parking_lot.bag
+  roslaunch tta_dataset_player parking_lot.launch  playback_speed:=4.0
   ```
 
 ### Traversability Label Generation
