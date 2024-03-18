@@ -5,7 +5,7 @@
 
   <param name="/use_sim_time" value="true" />
   <arg name="playback_speed" default="1" />
-  <arg name="play_from" default="0.0" />
+  <arg name="start_point" default="0.0" />
   <arg name="baselink" default="base_link" />
 
 
@@ -31,12 +31,12 @@
 
   <!-- RViz -->
   <node pkg="rviz" type="rviz" name="rviz"
-    args="-d $(find tta_dataset_player)/UrbanCampus/$(arg bagfile)/$(arg bagfile).rviz > /dev/null" />
+    args="-d $(find tta_dataset_player)/urban_campus/$(arg bagfile)/$(arg bagfile).rviz > /dev/null" />
 
 
   <!-- Play ROSBAG -->
   <node pkg="rosbag" type="play" name="rosbag" output="screen"
-    args="--clock -r $(arg playback_speed) -s $(arg play_from) $(find tta_dataset_player)/data/$(arg bagfile).bag" />
+    args="--clock -r $(arg playback_speed) -s $(arg start_point) $(find tta_dataset_player)/data/$(arg bagfile).bag" />
 
 
   <!-- Extrinsic Parameter: tilted velodyne -->
