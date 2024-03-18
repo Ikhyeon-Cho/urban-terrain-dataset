@@ -42,21 +42,21 @@ The training (blue) / testing (red) trajectories of a robot are shown in the aer
 Use the following links to download the datasets. 
 
 **1. Urban Campus Dataset:** [[Google Drive](https://drive.google.com/drive/folders/1l14o5QE8Z5ldgQ0lO2D_KLKNIQVvB2Qr?usp=sharing)]
-- parking_lot.bag
-- wheelchair_ramp.bag
-- campus_south.bag
-- campus_east.bag
-- campus_north.bag
-- campus_west.bag
-- campus_full.bag (-> about 50 min)
-- campus_full_long.bag (-> 138 min)
-- campus_road_camera.bag (with camera image topic)
-- ku_innovation_hall_4F.bag
+- [parking_lot.bag](https://drive.google.com/drive/folders/16df1ZbN2SjjBQvhAS9EX5fHkJ85wHgfE?usp=sharing)
+- [wheelchair_ramp.bag](https://drive.google.com/drive/folders/1sk3j3hwHu3VUMTLs_DI3MVyxgch_4uQD?usp=sharing)
+- [campus_south.bag](https://drive.google.com/drive/folders/1NSslJuBo6XGyjKpxsPo8HG7VAMU_hEqc?usp=sharing)
+- [campus_east.bag](https://drive.google.com/drive/folders/1vKQ2pda6jSjldX7Rq-fqBiMSrf18jhfb?usp=sharing)
+- [campus_north.bag](https://drive.google.com/drive/folders/1tE8ag8oqOLQ_xRGvVf8WACGu07CUyXPK?usp=sharing)
+- [campus_west.bag](https://drive.google.com/drive/folders/1WeDotnT4zPD1zetEtvcp3O_dXAi7rZKO?usp=sharing)
+- [campus_full.bag](https://drive.google.com/drive/folders/1URP1RMi-O8e0v7mvyIFC80K34L4J_hSt?usp=sharing) (-> about 50 min)
+- [campus_full_long.bag](https://drive.google.com/drive/folders/1K8qeY7GaqmDP5BFLAzukuf1LrxLXPGok?usp=sharing) (-> 138 min)
+- [campus_road_camera.bag](https://drive.google.com/drive/folders/1vanOoK2dcIbze5YHum0TSm1lOO2tlqP6?usp=sharing) (with camera image topic)
+- [ku_innovation_hall_4F.bag](https://drive.google.com/drive/folders/1uNsNPxqw25mWO8aBt2kjQj6W2Z6JQuL8?usp=sharing)
 
 **2. Farm Road Dataset:** [[Google Drive](https://drive.google.com/drive/folders/168ChwknIusDksEj3KLq57-kcfWv4_ghr?usp=sharing)]
-- country_road_training.bag
-- country_road_testing.bag
-- greenhouse.bag
+- [country_road_training.bag](https://drive.google.com/drive/folders/1WzTZGSETp41iKhOsCWsTGiAXhPxjD2Db?usp=sharing)
+- [country_road_testing.bag](https://drive.google.com/drive/folders/1WzTZGSETp41iKhOsCWsTGiAXhPxjD2Db?usp=sharing)
+- [greenhouse.bag](https://drive.google.com/drive/folders/15R_Qcc_lZ4OfhlLhSKGsSqk2y5_wRRcn?usp=sharing)
 
 ### Play
 We provide `tta_dataset_player` ROS package for playing the datasets with the basic `rviz` visualization settings. Please follow the instructions below to play the recorded rosbag files.
