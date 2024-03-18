@@ -40,8 +40,23 @@ The training (blue) / testing (red) trajectories of a robot are shown in the aer
 ## Download and Play
 ### Download
 Use the following links to download the datasets. 
-  - **Urban Campus Dataset:** [[Google Drive](https://drive.google.com/drive/folders/1l14o5QE8Z5ldgQ0lO2D_KLKNIQVvB2Qr?usp=sharing)]
-  - **Farm Road Dataset:** [[Google Drive](https://drive.google.com/drive/folders/168ChwknIusDksEj3KLq57-kcfWv4_ghr?usp=sharing)]
+
+**1. Urban Campus Dataset:** [[Google Drive](https://drive.google.com/drive/folders/1l14o5QE8Z5ldgQ0lO2D_KLKNIQVvB2Qr?usp=sharing)]
+- parking_lot.bag
+- wheelchair_ramp.bag
+- campus_south.bag
+- campus_east.bag
+- campus_north.bag
+- campus_west.bag
+- campus_full_short.bag (-> 50 min)
+- campus_full_long.bag (-> 138 min)
+- campus_road_camera.bag
+- ku_innovation_hall_4F.bag
+
+**2. Farm Road Dataset:** [[Google Drive](https://drive.google.com/drive/folders/168ChwknIusDksEj3KLq57-kcfWv4_ghr?usp=sharing)]
+- country_road_training.bag
+- country_road_testing.bag
+- greenhouse.bag
 
 ### Play
 We provide `tta_dataset_player` ROS package for playing the datasets with the basic `rviz` visualization settings. Please follow the instructions below to play the recorded rosbag files.
