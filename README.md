@@ -48,9 +48,9 @@ Use the following links to download the datasets.
 - campus_east.bag
 - campus_north.bag
 - campus_west.bag
-- campus_full_short.bag (-> 50 min)
+- campus_full.bag (-> about 50 min)
 - campus_full_long.bag (-> 138 min)
-- campus_road_camera.bag
+- campus_road_camera.bag (with camera image topic)
 - ku_innovation_hall_4F.bag
 
 **2. Farm Road Dataset:** [[Google Drive](https://drive.google.com/drive/folders/168ChwknIusDksEj3KLq57-kcfWv4_ghr?usp=sharing)]
@@ -66,19 +66,21 @@ In order to run `tta_dataset_player` package, please install the dependencies be
 - Ubuntu (tested on 20.04)
 - [ROS 1](https://wiki.ros.org/noetic/Installation/Ubuntu) (tested on Noetic)
 - `velodyne_pointcloud` (Velodyne ROS driver for unpacking LiDAR packet msgs)
-- `catkin_tools` (Optional, catkin command-line tools)
 
 Instaling the `velodyne_pointcloud` binaries by using `apt` should work through:
 ```
 sudo apt install ros-noetic-velodyne-pointcloud
 ```
 
+
+
+### Build
+We recommend to use `catkin_tools` to build the ROS packages (It is not mandatory).
 Instaling the `catkin_tools` package by using `apt` should work through:
 ```
 sudo apt install python3-catkin-tools
 ```
 
-### Build
 Use the following commands to download and build the `tta_dataset_player` package:
   ```
   cd ~/your-ros-workspace/src
