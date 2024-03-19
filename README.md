@@ -18,10 +18,10 @@ from Intelligent Systems and Robotics (ISR) Lab at Korea University, South Korea
 **Data Info:** Two-wheeled differential robot ([ISR-M3](./data/robotic_platform.pdf)) was used to collect the provided datasets. Our task of interests are: terrain mapping; ground obstacle detection; and the estimation of *robot-specific* traversability. For these purposes, a robot was equipped with a 3D LiDAR and IMU. The measured 3D point clouds capture the accurate geometry of the environment. In addition, robot poses are localized by the use of a Lidar-inertial odometry (LIO) system.
 
   The datasets are provided as a [rosbag](https://wiki.ros.org/rosbag) type. For more information about the rosbag, see [rosbag/Tutorials](https://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data). In each rosbag of our datasets, the following ROS messages are provided:
-  - LiDAR measurements (`velodyne_msgs/VelodyneScan` -> see the **Note** below)
-  - IMU measurements (`sensor_msgs::Imu`)
-  - Robot poses (`/tf`)
-  - Robot's extrinsic parameters (`/tf_static`) 
+  - **LiDAR measurements** (`velodyne_msgs/VelodyneScan` -> see the **Note** below)
+  - **IMU measurements** (`sensor_msgs::Imu`)
+  - **Odometry poses** (`/tf`)
+  - **Robot's extrinsic parameters** (`/tf_static`) 
 
 ****Note:** To reduce the size of datasets, only the *packet messages* of LiDAR sensor were recorded. This means that we have to unpack the lidar packets to playback and visualize the 3D point clouds. We provide the `vlp16packet_to_pointcloud.launch` file that handles the conversion of lidar packet to point clouds.
 
@@ -31,7 +31,12 @@ from Intelligent Systems and Robotics (ISR) Lab at Korea University, South Korea
 The training (blue) / testing (red) trajectories of a robot are shown in the aerial images below.    
 
 <p align='center'>
-    <img src="./config/environments.jpeg" alt="demo" width="600"/>
+    <img src="./config/parking_lot.gif" alt="demo" width="400"/>
+    <img src="./config/country_road.gif" alt="demo" width="400"/>
+</p>
+
+<p align='center'>
+    <img src="./config/environments.jpeg" alt="demo" width="800"/>
 </p>
 
 
@@ -98,15 +103,17 @@ Use the following commands to download and build the `tta_dataset_player` packag
   roslaunch tta_dataset_player parking_lot.launch  playback_speed:=4.0
   ```
 
+
 ### Traversability Label Generation
 - TBA
 
 ## Citation
-If you found this package useful, please cite our paper:
+If you found this work useful, cite our paper:
 
 ```bibtex
 @article{cho2024traversability,
-  title={Learning Self-Supervised Traversability With Navigation Experiences of Mobile Robots: A Risk-Aware Self-Training Approach}, 
+  title={Learning Self-Supervised Traversability With Navigation Experiences of Mobile Robots: 
+         A Risk-Aware Self-Training Approach}, 
   author={Cho, Ikhyeon and Chung, Woojin},
   journal={IEEE Robotics and Automation Letters}, 
   year={2024},
