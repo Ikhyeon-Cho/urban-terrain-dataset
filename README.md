@@ -117,9 +117,9 @@ If you found this work useful, cite our paper:
   author={Cho, Ikhyeon and Chung, Woojin},
   journal={IEEE Robotics and Automation Letters}, 
   year={2024},
-  volume={},
-  number={},
-  pages={},
+  volume={9},
+  number={5},
+  pages={4122-4129},
   doi={10.1109/LRA.2024.3376148}
 }
 ```
