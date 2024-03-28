@@ -9,7 +9,6 @@
   <arg name="baselink" default="base_link" />
 
 
-
   <!-- Setup Extrinsic Parameter: front velodyne VLP-16  -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_lidarFront"
     args="-0.040 0.000 0.682 0.00 0.00 0.025 $(arg baselink) velodyne_front" />
@@ -20,26 +19,25 @@
 
 
   <!-- From packet msg to PointCloud2 in specified frame id -->
-  <include file="$(find tta_dataset_player)/vlp16packet_to_pointcloud.launch" >
+  <include file="$(find tta_dataset_player)/vlp16packet_to_pointcloud.launch">
     <arg name="ns" value="velodyne_front" />
     <arg name="frame_id" value="$(arg baselink)" />
   </include>
 
-  <include file="$(find tta_dataset_player)/vlp16packet_to_pointcloud.launch" >
+  <include file="$(find tta_dataset_player)/vlp16packet_to_pointcloud.launch">
     <arg name="ns" value="velodyne_tilted" />
     <arg name="frame_id" value="$(arg baselink)" />
   </include>
 
 
   <!-- RViz -->
-  <node pkg="rviz" type="rviz" name="rviz"
+  <node pkg="rviz" type="rviz" name="rviz_$(arg bagfile)"
     args="-d $(find tta_dataset_player)/urban_campus/$(arg bagfile)/$(arg bagfile).rviz > /dev/null" />
 
 
   <!-- Play ROSBAG -->
   <node pkg="rosbag" type="play" name="rosbag" output="screen"
     args="--clock -r $(arg playback_speed) -s $(arg start_point) $(find tta_dataset_player)/data/$(arg bagfile).bag" />
-
 
 
 </launch>

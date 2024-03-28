@@ -25,7 +25,7 @@
   </include>
 
   <!-- RViz -->
-  <node pkg="rviz" type="rviz" name="rviz"
+  <node pkg="rviz" type="rviz" name="rviz_$(arg bagfile)"
     args="-d $(find tta_dataset_player)/urban_campus/wheelchair_ramp/$(arg bagfile).rviz > /dev/null" />
 
 
