@@ -12,7 +12,7 @@
 
 The dataset corresponding to the paper *['Learning Self-supervised Traversability with Navigation Experiences of Mobile Robots: A Risk-aware Self-training Approach,'](https://ieeexplore.ieee.org/document/10468651)* accepted for publication in RA-L on Feb, 2024. 
 <p align='center'>
-    <img src="./config/Learned LiDAR Traversability (Urban Campus).gif" alt="demo" width="800"/>
+    <img src="./config/Learned LiDAR Traversability.gif" alt="demo" width="800"/>
 </p>
 
 Our task of interests are: **terrain mapping**; **ground obstacle detection**; and the estimation of ***'robot-specific'* traversability**.
@@ -27,8 +27,8 @@ Given a robotic platform, we collected urban terrain data from its onboard measu
 ## About the dataset
 <p align='left'>
     <img src="config/ISR_M3.png" height="160"/>
-    <img src="config/label_generation.png" height="150"  style="margin-right: 20px;"/>
-    <img src="config/label_generation.gif" height="150"/>
+    <img src="config/label_generation.png" height="150" />
+    <img src="config/label_generation.gif" width="250" height="150"/>
 </p>
 
 - **Data Format:** Our datasets are provided as the files with [rosbag](https://wiki.ros.org/rosbag) format. For more information about the rosbag, see [rosbag/Tutorials](https://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data) and [rosbag/API Documentation](https://docs.ros.org/en/melodic/api/rosbag/html/).
@@ -38,9 +38,7 @@ Given a robotic platform, we collected urban terrain data from its onboard measu
   - IMU measurements (`sensor_msgs::Imu`)
   - Odometry pose (`/tf`)
   - Extrinsic parameters of the sensors (`/tf_static`)
-> **[Note]:** To reduce the size of datasets, only the *packet messages* of LiDAR sensor were recorded. This means that we have to unpack the lidar packets for playback the recorded point cloud measurements. For the purpose, there is a `vlp16packet_to_pointcloud.launch` file that handles the conversion of lidar packet to point clouds. 
-  </br>
-
+> **[Note]:** To reduce the size of datasets, only the *packet messages* of LiDAR sensor were recorded. This means that we have to unpack the lidar packets for playback the recorded point cloud measurements. For the purpose, there is a `vlp16packet_to_pointcloud.launch` file that handles the conversion of lidar packet to point clouds.
 - **Robotic Platform:** Two-wheeled differential-drive robot, [ISR-M3](https://github.com/Ikhyeon-Cho/isr_robot_ros/tree/isr_m3/ros1), was used to collect the datasets. The robot was equipped with a single 3D LiDAR and IMU. During the experiments, 3D pose of the robot was estimated by the use of a Lidar-inertial odometry (LIO) system.
 
 - **Environments:** We mainly provide two datasets with distinct ground surface characteristics. The training (blue) / testing (red) trajectories of a robot are shown in the aerial images below.   
@@ -52,7 +50,7 @@ Given a robotic platform, we collected urban terrain data from its onboard measu
 </p>
 <p align='center'>
     <img src="./config/parking_lot.gif" alt="demo" width="400"/>
-    <img src="./config/country_road.gif" alt="demo" width="400"/>
+    <img src="./config/farm_road.gif" alt="demo" width="400"/>
 </p>
 
 
