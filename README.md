@@ -25,6 +25,12 @@ Given a robotic platform, we collected urban terrain data from its onboard measu
 - **Robot-Environment Adaptability**: Data collected directly from the robot’s sensors ensures that the training data is highly relevant to the specific robot and its operating environment. This method allows the model to adapt to the unique characteristics of the robot, such as its locomotion capabilities and the given sensor configurations, leading to more accurate learning and predictions of traversability.
 
 ## About the dataset
+<p align='left'>
+    <img src="config/ISR_M3.png" height="160"/>
+    <img src="config/label_generation.png" height="150"  style="margin-right: 20px;"/>
+    <img src="config/label_generation.gif" height="150"/>
+</p>
+
 - **Data Format:** Our datasets are provided as the files with [rosbag](https://wiki.ros.org/rosbag) format. For more information about the rosbag, see [rosbag/Tutorials](https://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data) and [rosbag/API Documentation](https://docs.ros.org/en/melodic/api/rosbag/html/).
 
 - **What's in our dataset?:**   In each file of our datasets, the following ROS messages are provided:
