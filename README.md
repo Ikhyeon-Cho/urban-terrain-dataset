@@ -1,48 +1,57 @@
-# KU-TTA-Dataset
+# Urban Terrain Dataset
 
-The corresponding repository to the paper *"Learning Self-supervised Traversability with Navigation Experiences of Mobile Robots: A Risk-aware Self-training Approach"*, which is accepted for publication in RA-L.
+<div align="center">
+    <br>
+<div>
 
-#### [[IEEE RA-L](https://ieeexplore.ieee.org/document/10468651)]  [[ArXiv]()]  [[Video]()]
+[🛠️ Installation](#get-the-data) | [🎥 Video]() | [📖 Paper](https://ieeexplore.ieee.org/document/10468651)
+<br>
 
-**Authors:** [Ikhyeon Cho]() ([tre0430@korea.ac.kr](mailto:tre0430@korea.ac.kr)), Woojin Chung (smartrobot@korea.ac.kr)
+<div align="left">
+<div>
 
-from Intelligent Systems and Robotics (ISR) Lab at Korea University, South Korea.
-
+The dataset corresponding to the paper *['Learning Self-supervised Traversability with Navigation Experiences of Mobile Robots: A Risk-aware Self-training Approach,'](https://ieeexplore.ieee.org/document/10468651)* accepted for publication in RA-L on Feb, 2024. 
 <p align='center'>
     <img src="./config/Learned LiDAR Traversability (Urban Campus).gif" alt="demo" width="800"/>
 </p>
 
+Our task of interests are: **terrain mapping**; **ground obstacle detection**; and the estimation of ***'robot-specific'* traversability**.
 
- 
-## Dataset Overview
-**Data Info:** Two-wheeled differential robot ([ISR-M3](./data/robotic_platform.pdf)) was used to collect the provided datasets. Our task of interests are: terrain mapping; ground obstacle detection; and the estimation of *robot-specific* traversability. For these purposes, a robot was equipped with a 3D LiDAR and IMU. The measured 3D point clouds capture the accurate geometry of the environment. In addition, robot poses are localized by the use of a Lidar-inertial odometry (LIO) system.
+## Why we made custom dataset
+While well-known datasets like [KITTI]() provide extensive data for robotic perception, they often fall short in addressing the specific needs of learning robot-specific traversability. That is, KITTI and similar datasets such as [Cityscapes]() and [nuScenes](), are mainly designed for general applications and may not capture the unique environmental and operational challenges faced by specific robots. On the other hand, the robot's own navigation experiences provide rich contextual information that is crucial for understanding and navigating complex urban terrains.
 
-  The datasets are provided as a [rosbag](https://wiki.ros.org/rosbag) type. For more information about the rosbag, see [rosbag/Tutorials](https://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data). In each rosbag of our datasets, the following ROS messages are provided:
-  - **LiDAR measurements** (`velodyne_msgs/VelodyneScan` -> see the **Note** below)
-  - **IMU measurements** (`sensor_msgs::Imu`)
-  - **Odometry poses** (`/tf`)
-  - **Robot's extrinsic parameters** (`/tf_static`) 
+Given a robotic platform, we collected urban terrain data from its onboard measurements and labeled them by just using a simple manual driving experience of the robot. Here are some good reasons of using onboard measurements and the robot's own navigation experiecne for the application of learning robot-specific traversability:
+- **Data Scalability**: Leveraging the robot's own sensors and navigation experiences allows for the collection of large-scale datasets without the need for extensive manual data annotation efforts. This approach enables continuous and automated data gathering as the robot operates, facilitating the creation of extensive datasets that capture diverse environmental conditions and scenarios. All we have to do is to manually drive the robot in the target environment, which is typically done when constructing the map of the environment with the aid of SLAM system.
+- **Robot-Environment Adaptability**: Data collected directly from the robot’s sensors ensures that the training data is highly relevant to the specific robot and its operating environment. This method allows the model to adapt to the unique characteristics of the robot, such as its locomotion capabilities and the given sensor configurations, leading to more accurate learning and predictions of traversability.
 
-****Note:** To reduce the size of datasets, only the *packet messages* of LiDAR sensor were recorded. This means that we have to unpack the lidar packets to playback and visualize the 3D point clouds. We provide the `vlp16packet_to_pointcloud.launch` file that handles the conversion of lidar packet to point clouds.
+## About the dataset
+- **Data Format:** Our datasets are provided as the files with [rosbag](https://wiki.ros.org/rosbag) format. For more information about the rosbag, see [rosbag/Tutorials](https://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data) and [rosbag/API Documentation](https://docs.ros.org/en/melodic/api/rosbag/html/).
 
+- **What's in our dataset?:**   In each file of our datasets, the following ROS messages are provided:
+  - LiDAR measurements (`velodyne_msgs/VelodyneScan`)
+  - IMU measurements (`sensor_msgs::Imu`)
+  - Odometry pose (`/tf`)
+  - Extrinsic parameters of the sensors (`/tf_static`)
+> **[Note]:** To reduce the size of datasets, only the *packet messages* of LiDAR sensor were recorded. This means that we have to unpack the lidar packets for playback the recorded point cloud measurements. For the purpose, there is a `vlp16packet_to_pointcloud.launch` file that handles the conversion of lidar packet to point clouds. 
+  </br>
 
-**Environments:** We mainly provide two datasets with distinct ground surface characteristics. `Urban campus` shown in the below spans approximately 510m x 460m, with a maximum elevation change of 17m. The maximum inclination of the terrain is 14 degrees. The environment mostly consists of asphalt terrain. Some damaged roads, cobblestoned pavements, and the roads with small debris are challenging. In contrast, `Farm road` areas were typically unpaved dirt or gravel and included various low-height ground obstacles. 
+- **Robotic Platform:** Two-wheeled differential-drive robot, [ISR-M3](https://github.com/Ikhyeon-Cho/isr_robot_ros/tree/isr_m3/ros1), was used to collect the datasets. The robot was equipped with a single 3D LiDAR and IMU. During the experiments, 3D pose of the robot was estimated by the use of a Lidar-inertial odometry (LIO) system.
 
-The training (blue) / testing (red) trajectories of a robot are shown in the aerial images below.    
+- **Environments:** We mainly provide two datasets with distinct ground surface characteristics. The training (blue) / testing (red) trajectories of a robot are shown in the aerial images below.   
+  - **Urban campus**: This main target environment spans approximately 510m x 460m, with a maximum elevation change of 17m. The maximum inclination of the terrain is 14 degrees. The environment mostly consists of asphalt terrain. Some damaged roads, cobblestoned pavements, and the roads with small debris are challenging.
+  - **Rural farm road**: We additionally validated our approach in the unstructured environments. Farm road areas were typically unpaved dirt or gravel and included various low-height ground obstacles. 
 
+<p align='center'>
+    <img src="./config/environments.jpeg" alt="demo" width="800"/>
+</p>
 <p align='center'>
     <img src="./config/parking_lot.gif" alt="demo" width="400"/>
     <img src="./config/country_road.gif" alt="demo" width="400"/>
 </p>
 
-<p align='center'>
-    <img src="./config/environments.jpeg" alt="demo" width="800"/>
-</p>
 
 
-
-
-## Download and Play
+## Get the Data
 ### Download
 Use the following links to download the datasets. 
 
@@ -69,7 +78,7 @@ We provide `tta_dataset_player` ROS package for playing the datasets with the ba
 ### Dependencies
 In order to run `tta_dataset_player` package, please install the dependencies below:
 - Ubuntu (tested on 20.04)
-- [ROS 1](https://wiki.ros.org/noetic/Installation/Ubuntu) (tested on Noetic)
+- [ROS](https://wiki.ros.org/noetic/Installation/Ubuntu) (tested on Noetic)
 - `velodyne_pointcloud` (Velodyne ROS driver for unpacking LiDAR packet msgs)
 
 Instaling the `velodyne_pointcloud` binaries by using `apt` should work through:
@@ -103,17 +112,15 @@ Use the following commands to download and build the `tta_dataset_player` packag
   roslaunch tta_dataset_player parking_lot.launch  playback_speed:=4.0
   ```
 
+<!-- ## Acknowledgement -->
 
-### Traversability Label Generation
-- TBA
 
 ## Citation
-If you found this work useful, cite our paper:
+Thank you for citing [our paper](https://ieeexplore.ieee.org/document/10468651) if this helps your research projects:
 
 ```bibtex
 @article{cho2024traversability,
-  title={Learning Self-Supervised Traversability With Navigation Experiences of Mobile Robots: 
-         A Risk-Aware Self-Training Approach}, 
+  title={Learning Self-Supervised Traversability With Navigation Experiences of Mobile Robots: A Risk-Aware Self-Training Approach}, 
   author={Cho, Ikhyeon and Chung, Woojin},
   journal={IEEE Robotics and Automation Letters}, 
   year={2024},
