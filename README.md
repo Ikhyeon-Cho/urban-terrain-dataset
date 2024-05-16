@@ -26,7 +26,7 @@ Given a robotic platform, we collected urban terrain data from its onboard measu
 
 ## About the dataset
 <p align='left'>
-    <img src="config/ISR_M3.png" height="160"/>
+    <img src="config/robot.png" height="150"/>
     <img src="config/label_generation.png" height="150" />
     <img src="config/label_generation.gif" width="250" height="150"/>
 </p>
