@@ -4,13 +4,13 @@
     <br>
 <div>
 
-[🛠️ Installation](#get-the-data) | [🎥 Video]() | [📖 Paper](https://ieeexplore.ieee.org/document/10468651)
+[🛠️ Installation](#get-the-data) | [🎥 Video]() | [📖 Paper (RA-L)](https://ieeexplore.ieee.org/document/10468651)
 <br>
 
 <div align="left">
 <div>
 
-The dataset corresponding to the paper *['Learning Self-supervised Traversability with Navigation Experiences of Mobile Robots: A Risk-aware Self-training Approach,'](https://ieeexplore.ieee.org/document/10468651)* accepted for publication in RA-L on Feb, 2024. 
+The dataset corresponding to the paper *['Learning Self-supervised Traversability with Navigation Experiences of Mobile Robots: A Risk-aware Self-training Approach'](https://ieeexplore.ieee.org/document/10468651)* , accepted for publication in RA-L on Feb, 2024. 
 <p align='center'>
     <img src="./config/Learned LiDAR Traversability.gif" alt="demo" width="800"/>
 </p>
@@ -25,7 +25,7 @@ Given a robotic platform, we collected urban terrain data from its onboard measu
 - **Robot-Environment Adaptability**: Data collected directly from the robot’s sensors ensures that the training data is highly relevant to the specific robot and its operating environment. This method allows the model to adapt to the unique characteristics of the robot, such as its locomotion capabilities and the given sensor configurations, leading to more accurate learning and predictions of traversability.
 
 ## About the dataset
-<p align='left'>
+<p align='center'>
     <img src="config/robot.png" height="150"/>
     <img src="config/label_generation.png" height="150" />
     <img src="config/label_generation.gif" width="250" height="150"/>
@@ -39,7 +39,7 @@ Given a robotic platform, we collected urban terrain data from its onboard measu
   - Odometry pose (`/tf`)
   - Extrinsic parameters of the sensors (`/tf_static`)
 > **[Note]:** To reduce the size of datasets, only the *packet messages* of LiDAR sensor were recorded. This means that we have to unpack the lidar packets for playback the recorded point cloud measurements. For the purpose, there is a `vlp16packet_to_pointcloud.launch` file that handles the conversion of lidar packet to point clouds.
-- **Robotic Platform:** Two-wheeled differential-drive robot, [ISR-M3](https://github.com/Ikhyeon-Cho/isr_robot_ros/tree/isr_m3/ros1), was used to collect the datasets. The robot was equipped with a single 3D LiDAR and IMU. During the experiments, 3D pose of the robot was estimated by the use of a Lidar-inertial odometry (LIO) system.
+- **Robotic Platform:** Two-wheeled differential-drive robot, [ISR-M3](https://github.com/Ikhyeon-Cho/isr_robot_ros/tree/isr_m4/ros1), was used to collect the datasets. The robot was equipped with a single 3D LiDAR and IMU. During the experiments, 3D pose of the robot was estimated by the use of a Lidar-inertial odometry (LIO) system.
 
 - **Environments:** We mainly provide two datasets with distinct ground surface characteristics. The training (blue) / testing (red) trajectories of a robot are shown in the aerial images below.   
   - **Urban campus**: This main target environment spans approximately 510m x 460m, with a maximum elevation change of 17m. The maximum inclination of the terrain is 14 degrees. The environment mostly consists of asphalt terrain. Some damaged roads, cobblestoned pavements, and the roads with small debris are challenging.
