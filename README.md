@@ -77,10 +77,10 @@ Use the following links to download the datasets.
 - [greenhouse.bag](https://drive.google.com/drive/folders/15R_Qcc_lZ4OfhlLhSKGsSqk2y5_wRRcn?usp=sharing) (-> 13 min)
 
 ### Play
-We provide `tta_dataset_player` ROS package for playing the datasets with the basic `rviz` visualization settings. Please follow the instructions below to play the recorded rosbag files.
+We provide `terrain_dataset_player` ROS package for playing the datasets with the basic `rviz` visualization settings. Please follow the instructions below to play the recorded rosbag files.
 
 ### Dependencies
-In order to run `tta_dataset_player` package, please install the dependencies below:
+In order to run `terrain_dataset_player` package, please install the dependencies below:
 - Ubuntu (tested on 20.04)
 - [ROS](https://wiki.ros.org/noetic/Installation/Ubuntu) (tested on Noetic)
 - `velodyne_pointcloud` (Velodyne ROS driver for unpacking LiDAR packet msgs)
@@ -99,21 +99,21 @@ Instaling the `catkin_tools` package by using `apt` should work through:
 sudo apt install python3-catkin-tools
 ```
 
-Use the following commands to download and build the `tta_dataset_player` package:
+Use the following commands to download and build the `terrain_dataset_player` package:
   ```
   cd ~/your-ros-workspace/src
-  git clone https://github.com/Ikhyeon-Cho/KU-TTA-Dataset.git
+  git clone https://github.com/Ikhyeon-Cho/urban-terrain-dataset.git
   cd ..
-  catkin build tta_dataset_player   ## If not using catkin_tools, use catkin_make
+  catkin build terrain_dataset_player   ## If not using catkin_tools, use catkin_make
   ```
 
 
 ### Run the player
-1. Locate the downloaded rosbag files (See [Download the datasets](#download)) into `KU-TTA-Dataset/data` folder. 
+1. Locate the downloaded rosbag files (See [Download the datasets](#download)) into `data` folder.
 2. Run the command below to play the rosbag files in `data` folder:
   ```
   ## Example: parking_lot.bag
-  roslaunch tta_dataset_player parking_lot.launch  playback_speed:=4.0
+  roslaunch terrain_dataset_player parking_lot.launch  playback_speed:=4.0
   ```
 
 <!-- ## Acknowledgement -->
