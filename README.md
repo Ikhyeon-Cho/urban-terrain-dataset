@@ -12,7 +12,7 @@
 
 The dataset corresponding to the paper *['Learning Self-supervised Traversability with Navigation Experiences of Mobile Robots: A Risk-aware Self-training Approach'](https://ieeexplore.ieee.org/document/10468651)* , accepted for publication in RA-L on Feb, 2024. 
 <p align='center'>
-    <img src="./config/Learned LiDAR Traversability.gif" alt="demo" width="800"/>
+    <img src="docs/Learned LiDAR Traversability.gif" alt="demo" width="800"/>
 </p>
 
 Our task of interests are: **terrain mapping**; **ground obstacle detection**; and the estimation of ***'robot-specific'* traversability**.
@@ -22,13 +22,13 @@ While well-known datasets like [KITTI](https://www.cvlibs.net/datasets/kitti/) p
 
 Given a robotic platform, we collected urban terrain data from its onboard measurements and labeled them by just using a simple manual driving experience of the robot. Here are some good reasons of using onboard measurements and the robot's own navigation experiecne for the application of learning robot-specific traversability:
 - **Data Scalability**: Leveraging the robot's own sensors and navigation experiences allows for the collection of large-scale datasets without the need for extensive manual data annotation efforts. This approach enables continuous and automated data gathering as the robot operates, facilitating the creation of extensive datasets that capture diverse environmental conditions and scenarios. All we have to do is to manually drive the robot in the target environment, which is typically done when constructing the map of the environment with the aid of SLAM system.
-- **Robot-Environment Adaptability**: Data collected directly from the robot’s sensors ensures that the training data is highly relevant to the specific robot and its operating environment. This method allows the model to adapt to the unique characteristics of the robot, such as its locomotion capabilities and the given sensor configurations, leading to more accurate learning and predictions of traversability.
+- **Robot-Environment Adaptability**: Data collected directly from the robot’s sensors ensures that the training data is highly relevant to the specific robot and its operating environment. This method allows the model to adapt to the unique characteristics of the robot, such as its locomotion capabilities and the given sensor docsurations, leading to more accurate learning and predictions of traversability.
 
 ## About the dataset
 <p align='center'>
-    <img src="config/robot.png" height="150"/>
-    <img src="config/label_generation.png" height="150" />
-    <img src="config/label_generation.gif" width="250" height="150"/>
+    <img src="docs/robot.png" height="150"/>
+    <img src="docs/label_generation.png" height="150" />
+    <img src="docs/label_generation.gif" width="250" height="150"/>
 </p>
 
 - **Data Format:** Our datasets are provided as the files with [rosbag](https://wiki.ros.org/rosbag) format. For more information about the rosbag, see [rosbag/Tutorials](https://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data) and [rosbag/API Documentation](https://docs.ros.org/en/melodic/api/rosbag/html/).
@@ -46,11 +46,11 @@ Given a robotic platform, we collected urban terrain data from its onboard measu
   - **Rural farm road**: We additionally validated our approach in the unstructured environments. Farm road areas were typically unpaved dirt or gravel and included various low-height ground obstacles. 
 
 <p align='center'>
-    <img src="./config/environments.jpeg" alt="demo" width="800"/>
+    <img src="docs/environments.jpeg" alt="demo" width="800"/>
 </p>
 <p align='center'>
-    <img src="./config/parking_lot.gif" alt="demo" width="400"/>
-    <img src="./config/farm_road.gif" alt="demo" width="400"/>
+    <img src="docs/parking_lot.gif" alt="demo" width="400"/>
+    <img src="docs/farm_road.gif" alt="demo" width="400"/>
 </p>
 
 
