@@ -121,7 +121,7 @@ Use the following commands to download and build the `terrain_dataset_player` pa
 
 ## Citation
 Thank you for citing [our paper](https://ieeexplore.ieee.org/document/10468651) if this helps your research projects:
-
+> Ikhyeon Cho, and Woojin Chung. **'Learning Self-Supervised Traversability With Navigation Experiences of Mobile Robots: A Risk-Aware Self-Training Approach'**, *IEEE Robotics and Automation Letters, 2024*.
 ```bibtex
 @article{cho2024traversability,
   title={Learning Self-Supervised Traversability With Navigation Experiences of Mobile Robots: A Risk-Aware Self-Training Approach}, 
