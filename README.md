@@ -1,10 +1,12 @@
-# Urban Terrain Dataset
-
 <div align="center">
-    <br>
 <div>
 
-[🛠️ Installation](#get-the-data) | [🎥 Video]() | [📖 Paper (RA-L)](https://ieeexplore.ieee.org/document/10468651)
+# Urban Traversability Dataset
+
+<br>
+
+[🛠️ Download](#get-the-data) | [🎥 Video]() | [💻 Code](https://github.com/Ikhyeon-Cho/LeSTA) | [📖 Paper (RA-L)](https://ieeexplore.ieee.org/document/10468651)
+
 <br>
 
 <div align="left">
@@ -121,9 +123,9 @@ Use the following commands to download and build the `terrain_dataset_player` pa
 
 ## Citation
 Thank you for citing [our paper](https://ieeexplore.ieee.org/document/10468651) if this helps your research projects:
-> Ikhyeon Cho, and Woojin Chung. **'Learning Self-Supervised Traversability With Navigation Experiences of Mobile Robots: A Risk-Aware Self-Training Approach'**, *IEEE Robotics and Automation Letters, 2024*.
+> Ikhyeon Cho, and Woojin Chung. **'Learning Self-Supervised Traversability with Navigation Experiences of Mobile Robots: A Risk-Aware Self-Training Approach'**, *IEEE Robotics and Automation Letters, 2024*.
 ```bibtex
-@article{cho2024traversability,
+@article{cho2024learning,
   title={Learning Self-Supervised Traversability With Navigation Experiences of Mobile Robots: A Risk-Aware Self-Training Approach}, 
   author={Cho, Ikhyeon and Chung, Woojin},
   journal={IEEE Robotics and Automation Letters}, 
